@@ -9,6 +9,9 @@ import {
     Text,
     Hr,
     Img,
+    Link,
+    Row,
+    Column,
 } from "@react-email/components";
 import * as React from "react";
 
@@ -22,103 +25,117 @@ export const WelcomeEmail = ({ email, role, position }: WelcomeEmailProps) => {
     return (
         <Html>
             <Head />
-            <Preview>Welcome to BidForge - Your 60-Day Pro Trial Awaits!</Preview>
+            <Preview>You're in! Welcome to the BidForge Waitlist 🎉</Preview>
             <Body style={main}>
                 <Container style={container}>
-                    {/* Header with Logo */}
-                    <Section style={headerSection}>
+                    {/* Brand Header */}
+                    <Section style={header}>
                         <Img
                             src="https://bidforgewaitlist.netlify.app/logo.jpeg"
-                            alt="BidForge Logo"
-                            width="60"
-                            height="60"
+                            alt="BidForge"
+                            width="50"
+                            height="50"
                             style={logo}
                         />
-                        <Heading style={h1}>
+                        <Heading style={brandText}>
                             Bid<span style={{ color: "#FF8C42" }}>Forge</span>
                         </Heading>
-                        <Text style={tagline}>Real-Time Construction Bid Management</Text>
                     </Section>
 
-                    <Section style={contentSection}>
-                        <Heading style={h2}>Welcome to the Future of Bidding! 🎉</Heading>
-                        <Text style={text}>
-                            Thank you for joining the BidForge waitlist. You've secured your spot as an early adopter of the platform that's transforming how General Contractors and Subcontractors collaborate on construction projects.
+                    {/* Hero Section */}
+                    <Section style={hero}>
+                        <Heading style={h1}>Welcome to the waitlist, future builder!</Heading>
+                        <Text style={heroText}>
+                            Constructing the perfect bidding platform takes time. We're glad you're here to help us build it.
                         </Text>
+                    </Section>
 
-                        {/* Waitlist Position Box */}
-                        <Section style={statsBox}>
-                            <Text style={statsLabel}>Your Waitlist Position</Text>
-                            <Text style={statsNumber}>#{position}</Text>
-                            <Text style={statsSubtext}>You're ahead of the curve!</Text>
+                    {/* Position Card */}
+                    <Section style={card}>
+                        <Text style={cardLabel}>YOUR WAITLIST POSITION</Text>
+                        <Heading style={cardValue}>#{position}</Heading>
+                        <Text style={cardSubtext}>We're growing fast! Thank you for your early support.</Text>
+                    </Section>
+
+                    {/* The Offer */}
+                    <Section style={offerSection}>
+                        <Row>
+                            <Column align="center" style={offerBadge}>
+                                <Text style={offerBadgeText}>EXCLUSIVE PRE-LAUNCH OFFER</Text>
+                            </Column>
+                        </Row>
+                        <Heading style={offerTitle}>60-Day Pro Trial</Heading>
+                        <Text style={offerDescription}>
+                            As a thank you for joining early, your account will be pre-loaded with a <strong>60-day trial of BidForge Pro</strong> (a $198 value) the moment we go live.
+                        </Text>
+                    </Section>
+
+                    <Hr style={divider} />
+
+                    {/* What's Next */}
+                    <Section style={stepsSection}>
+                        <Heading style={h2}>What happens now?</Heading>
+
+                        <Section style={stepRow}>
+                            <Row>
+                                <Column style={stepNumberContainer}>
+                                    <Text style={stepNumber}>01</Text>
+                                </Column>
+                                <Column>
+                                    <Text style={stepTitle}>Validation</Text>
+                                    <Text style={stepContent}>
+                                        We are currently fine-tuning the platform with our pre-beta group. You'll receive updates as we move closer to launch.
+                                    </Text>
+                                </Column>
+                            </Row>
                         </Section>
 
-                        {/* Pro Trial Highlight */}
-                        <Section style={proTrialBox}>
-                            <Text style={proTrialIcon}>🎁</Text>
-                            <Heading style={proTrialHeading}>60-Day Pro Trial Included</Heading>
-                            <Text style={proTrialText}>
-                                As a waitlist member, you'll receive <strong>full access to all Pro features</strong> for 60 days when we launch—completely free.
-                            </Text>
+                        <Section style={stepRow}>
+                            <Row>
+                                <Column style={stepNumberContainer}>
+                                    <Text style={stepNumber}>02</Text>
+                                </Column>
+                                <Column>
+                                    <Text style={stepTitle}>First Invite</Text>
+                                    <Text style={stepContent}>
+                                        Invitations will be sent out in batches based on waitlist position. Watch your inbox for your unique access code.
+                                    </Text>
+                                </Column>
+                            </Row>
                         </Section>
 
-                        <Heading style={h3}>What Happens Next?</Heading>
-                        <Section style={stepList}>
-                            <Section style={stepItem}>
-                                <Text style={stepNumber}>1</Text>
-                                <Section style={stepContent}>
-                                    <Text style={stepTitle}>Stay Updated</Text>
-                                    <Text style={stepDescription}>
-                                        We'll send you exclusive updates on our development progress and sneak peeks of upcoming features.
+                        <Section style={stepRow}>
+                            <Row>
+                                <Column style={stepNumberContainer}>
+                                    <Text style={stepNumber}>03</Text>
+                                </Column>
+                                <Column>
+                                    <Text style={stepTitle}>Get Bidding</Text>
+                                    <Text style={stepContent}>
+                                        Log in, set up your profile, and start managing your bids without the spreadsheet headache.
                                     </Text>
-                                </Section>
-                            </Section>
-
-                            <Section style={stepItem}>
-                                <Text style={stepNumber}>2</Text>
-                                <Section style={stepContent}>
-                                    <Text style={stepTitle}>Early Access Invitation</Text>
-                                    <Text style={stepDescription}>
-                                        You'll be among the first to receive an invite when our beta launches. Your 60-day Pro trial starts the moment you sign up.
-                                    </Text>
-                                </Section>
-                            </Section>
-
-                            <Section style={stepItem}>
-                                <Text style={stepNumber}>3</Text>
-                                <Section style={stepContent}>
-                                    <Text style={stepTitle}>Shape the Platform</Text>
-                                    <Text style={stepDescription}>
-                                        Your feedback matters. Reply to this email anytime to share your biggest bidding challenges—we're building this for you.
-                                    </Text>
-                                </Section>
-                            </Section>
+                                </Column>
+                            </Row>
                         </Section>
+                    </Section>
 
-                        <Hr style={hr} />
-
-                        {/* Footer */}
-                        <Text style={footer}>
-                            This email was sent to <strong>{email}</strong> as a <strong>{role}</strong>.
+                    {/* Footer Info */}
+                    <Section style={footer}>
+                        <Text style={footerText}>
+                            Sent to <span style={footerEmphasis}>{email}</span> because you signed up as a <span style={footerEmphasis}>{role}</span> on the BidForge website.
                         </Text>
-                        <Text style={footerCompany}>
-                            BidForge | Built for the Construction Industry
+                        <Hr style={footerDivider} />
+                        <Text style={copyright}>
+                            © {new Date().getFullYear()} BidForge Inc. All rights reserved.<br />
+                            Modern construction bidding for General & Subcontractors.
                         </Text>
-                        <Text style={footerLinks}>
-                            Questions? Reply to this email or visit our{" "}
-                            <a href="https://your-domain.netlify.app" style={link}>
-                                website
-                            </a>
-                        </Text>
+                        <Section style={footerLinks}>
+                            <Link href="https://bidforgewaitlist.netlify.app" style={footerLink}>Website</Link>
+                            <span style={footerDot}> • </span>
+                            <Link href="mailto:bidforge@hotmail.com" style={footerLink}>Support</Link>
+                        </Section>
                     </Section>
                 </Container>
-
-                {/* Trust Badge */}
-                <Section style={trustBadge}>
-                    <Text style={trustText}>
-                        🔒 Your data is secure and will never be shared with third parties.
-                    </Text>
-                </Section>
             </Body>
         </Html>
     );
@@ -126,221 +143,218 @@ export const WelcomeEmail = ({ email, role, position }: WelcomeEmailProps) => {
 
 export default WelcomeEmail;
 
-// Styles
+// --- STYLES ---
+
 const main = {
-    backgroundColor: "#f3f4f6",
-    fontFamily:
-        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif',
+    backgroundColor: "#f9fafb",
+    fontFamily: '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif',
+    padding: "40px 0",
 };
 
 const container = {
     backgroundColor: "#ffffff",
-    margin: "40px auto",
-    borderRadius: "12px",
-    overflow: "hidden",
+    border: "1px solid #e5e7eb",
+    borderRadius: "24px",
+    margin: "0 auto",
     maxWidth: "600px",
-    boxShadow: "0 10px 40px rgba(0, 0, 0, 0.1)",
+    overflow: "hidden",
 };
 
-const headerSection = {
-    backgroundColor: "#2F4F4F",
-    padding: "40px 32px",
+const header = {
+    padding: "40px 20px 20px",
     textAlign: "center" as const,
 };
 
 const logo = {
-    borderRadius: "8px",
-    margin: "0 auto 16px",
+    borderRadius: "12px",
+    margin: "0 auto",
+    display: "block",
 };
 
-const h1 = {
-    color: "#ffffff",
-    fontSize: "32px",
+const brandText = {
+    fontSize: "24px",
     fontWeight: "800",
-    margin: "0",
+    color: "#111827",
+    margin: "12px 0 0",
     letterSpacing: "-0.5px",
 };
 
-const tagline = {
-    color: "#E5E7EB",
-    fontSize: "14px",
-    margin: "8px 0 0 0",
-    fontWeight: "500",
+const hero = {
+    padding: "0 40px 40px",
+    textAlign: "center" as const,
 };
 
-const contentSection = {
-    padding: "48px 40px",
+const h1 = {
+    color: "#111827",
+    fontSize: "32px",
+    fontWeight: "900",
+    lineHeight: "1.2",
+    margin: "20px 0 10px",
 };
 
-const h2 = {
-    color: "#1F2937",
-    fontSize: "26px",
-    fontWeight: "700",
-    marginBottom: "16px",
-    lineHeight: "1.3",
-};
-
-const h3 = {
-    color: "#374151",
-    fontSize: "20px",
-    fontWeight: "700",
-    marginTop: "40px",
-    marginBottom: "24px",
-};
-
-const text = {
-    color: "#4B5563",
+const heroText = {
+    color: "#4b5563",
     fontSize: "16px",
-    lineHeight: "26px",
-    margin: "0 0 24px 0",
+    lineHeight: "1.6",
+    margin: "0",
 };
 
-const statsBox = {
-    backgroundColor: "#F9FAFB",
-    borderRadius: "12px",
+const card = {
+    backgroundColor: "#fdf8f6",
+    border: "2px dashed #ffedd5",
+    borderRadius: "24px",
+    margin: "0 40px 40px",
     padding: "32px",
     textAlign: "center" as const,
-    margin: "32px 0",
-    border: "2px solid #E5E7EB",
 };
 
-const statsLabel = {
-    color: "#6B7280",
-    fontSize: "13px",
-    fontWeight: "600",
-    textTransform: "uppercase" as const,
-    letterSpacing: "1px",
-    margin: "0 0 12px 0",
+const cardLabel = {
+    color: "#9a3412",
+    fontSize: "12px",
+    fontWeight: "800",
+    letterSpacing: "0.1em",
+    margin: "0 0 8px",
 };
 
-const statsNumber = {
+const cardValue = {
     color: "#FF8C42",
-    fontSize: "48px",
+    fontSize: "56px",
     fontWeight: "900",
     margin: "0",
     lineHeight: "1",
 };
 
-const statsSubtext = {
-    color: "#9CA3AF",
-    fontSize: "14px",
-    margin: "12px 0 0 0",
+const cardSubtext = {
+    color: "#9a3412",
+    fontSize: "13px",
+    margin: "12px 0 0",
+    opacity: "0.8",
 };
 
-const proTrialBox = {
-    backgroundColor: "#FEF3C7",
-    border: "2px solid #FCD34D",
-    borderRadius: "12px",
-    padding: "24px",
+const offerSection = {
+    padding: "0 40px 40px",
     textAlign: "center" as const,
-    margin: "32px 0",
 };
 
-const proTrialIcon = {
-    fontSize: "40px",
-    margin: "0 0 12px 0",
+const offerBadge = {
+    backgroundColor: "#008080",
+    borderRadius: "99px",
+    padding: "4px 16px",
+    display: "inline-block",
 };
 
-const proTrialHeading = {
-    color: "#92400E",
-    fontSize: "20px",
+const offerBadgeText = {
+    color: "#ffffff",
+    fontSize: "10px",
     fontWeight: "700",
-    margin: "0 0 12px 0",
-};
-
-const proTrialText = {
-    color: "#78350F",
-    fontSize: "15px",
-    lineHeight: "24px",
+    letterSpacing: "0.05em",
     margin: "0",
 };
 
-const stepList = {
-    margin: "24px 0",
+const offerTitle = {
+    color: "#111827",
+    fontSize: "22px",
+    fontWeight: "800",
+    margin: "16px 0 8px",
 };
 
-const stepItem = {
-    display: "flex",
+const offerDescription = {
+    color: "#4b5563",
+    fontSize: "15px",
+    lineHeight: "1.6",
+    margin: "0",
+};
+
+const divider = {
+    borderColor: "#f3f4f6",
+    margin: "0 40px 40px",
+};
+
+const stepsSection = {
+    padding: "0 40px 40px",
+};
+
+const h2 = {
+    color: "#111827",
+    fontSize: "20px",
+    fontWeight: "800",
+    margin: "0 0 24px",
+};
+
+const stepRow = {
     marginBottom: "24px",
-    alignItems: "flex-start",
+};
+
+const stepNumberContainer = {
+    width: "48px",
+    verticalAlign: "top",
 };
 
 const stepNumber = {
-    backgroundColor: "#FF8C42",
-    color: "#ffffff",
-    width: "32px",
-    height: "32px",
-    borderRadius: "50%",
-    display: "inline-flex",
-    alignItems: "center",
-    justifyContent: "center",
-    fontSize: "16px",
-    fontWeight: "700",
-    flexShrink: "0",
-    marginRight: "16px",
-};
-
-const stepContent = {
-    flex: "1",
+    color: "#e5e7eb",
+    fontSize: "24px",
+    fontWeight: "900",
+    margin: "0",
+    lineHeight: "1.2",
 };
 
 const stepTitle = {
-    color: "#1F2937",
+    color: "#111827",
     fontSize: "16px",
-    fontWeight: "600",
-    margin: "0 0 8px 0",
+    fontWeight: "700",
+    margin: "0 0 4px",
 };
 
-const stepDescription = {
-    color: "#6B7280",
+const stepContent = {
+    color: "#6b7280",
     fontSize: "14px",
-    lineHeight: "22px",
+    lineHeight: "1.5",
     margin: "0",
-};
-
-const hr = {
-    borderColor: "#E5E7EB",
-    margin: "40px 0 32px 0",
 };
 
 const footer = {
-    color: "#6B7280",
-    fontSize: "14px",
+    backgroundColor: "#f9fafb",
+    padding: "40px",
     textAlign: "center" as const,
-    lineHeight: "22px",
-    margin: "0 0 8px 0",
 };
 
-const footerCompany = {
-    color: "#9CA3AF",
+const footerText = {
+    color: "#6b7280",
     fontSize: "13px",
-    textAlign: "center" as const,
-    margin: "0 0 16px 0",
+    lineHeight: "1.6",
+    margin: "0 0 24px",
+};
+
+const footerEmphasis = {
+    color: "#111827",
     fontWeight: "600",
+};
+
+const footerDivider = {
+    borderColor: "#e5e7eb",
+    margin: "0 0 24px",
+};
+
+const copyright = {
+    color: "#9ca3af",
+    fontSize: "12px",
+    lineHeight: "1.5",
+    margin: "0 0 16px",
 };
 
 const footerLinks = {
-    color: "#9CA3AF",
-    fontSize: "12px",
     textAlign: "center" as const,
-    lineHeight: "20px",
-    margin: "0",
 };
 
-const link = {
-    color: "#FF8C42",
-    textDecoration: "none",
+const footerLink = {
+    color: "#008080",
+    fontSize: "12px",
     fontWeight: "600",
+    textDecoration: "none",
 };
 
-const trustBadge = {
-    textAlign: "center" as const,
-    margin: "24px auto 40px",
-    maxWidth: "600px",
-};
-
-const trustText = {
-    color: "#9CA3AF",
+const footerDot = {
+    color: "#d1d5db",
     fontSize: "12px",
-    margin: "0",
+    margin: "0 8px",
 };
