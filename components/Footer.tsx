@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Twitter, Linkedin, Github } from "lucide-react";
+import { Mail } from "lucide-react";
 
 export default function Footer() {
     const currentYear = new Date().getFullYear();
@@ -11,7 +11,7 @@ export default function Footer() {
         <footer className="bg-neutral-dark text-white pt-20 pb-10">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-                    <div className="col-span-1 md:col-span-2">
+                    <div className="col-span-1 md:col-span-3">
                         <Link href="/" className="flex items-center gap-2 mb-6">
                             <div className="relative w-10 h-10 overflow-hidden rounded-lg">
                                 <Image
@@ -28,17 +28,6 @@ export default function Footer() {
                         <p className="text-white/60 max-w-sm mb-6 leading-relaxed">
                             The next generation of construction bid management. Building the tools to help you work faster, bid smarter, and grow your construction business with modern technology.
                         </p>
-                        <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
-                                <Twitter size={18} />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
-                                <Linkedin size={18} />
-                            </a>
-                            <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors">
-                                <Github size={18} />
-                            </a>
-                        </div>
                     </div>
 
                     <div>
@@ -49,15 +38,6 @@ export default function Footer() {
                             <li><Link href="#faq" className="text-white/60 hover:text-white transition-colors">FAQ</Link></li>
                         </ul>
                     </div>
-
-                    <div>
-                        <h4 className="text-lg font-bold mb-6">Company</h4>
-                        <ul className="space-y-4">
-                            <li><a href="#" className="text-white/60 hover:text-white transition-colors">About Us</a></li>
-                            <li><a href="#" className="text-white/60 hover:text-white transition-colors">Contact</a></li>
-                            <li><a href="#" className="text-white/60 hover:text-white transition-colors">Privacy Policy</a></li>
-                        </ul>
-                    </div>
                 </div>
 
                 <div className="border-t border-white/10 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
@@ -66,7 +46,7 @@ export default function Footer() {
                     </p>
                     <div className="flex items-center gap-2 text-white/40 text-sm">
                         <Mail size={16} />
-                        <a href="mailto:hello@bidforge.com" className="hover:text-white transition-colors">hello@bidforge.com</a>
+                        <a href="mailto:bidforge@hotmail.com" className="hover:text-white transition-colors">bidforge@hotmail.com</a>
                     </div>
                 </div>
             </div>

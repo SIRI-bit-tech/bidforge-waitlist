@@ -28,7 +28,7 @@ export const WelcomeEmail = ({ email, role, position }: WelcomeEmailProps) => {
                     {/* Header with Logo */}
                     <Section style={headerSection}>
                         <Img
-                            src="https://your-domain.netlify.app/logo.jpeg"
+                            src="https://bidforgewaitlist.netlify.app/logo.jpeg"
                             alt="BidForge Logo"
                             width="60"
                             height="60"
